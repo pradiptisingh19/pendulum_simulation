@@ -26,3 +26,15 @@ while current_time < total_time:
     time_values.append(current_time)
     theta_values.append(current_theta)
     omega_values.append(current_omega)
+
+
+fig, ax = plt.subplots()
+pendulum, = ax.plot([], [], 'ro-', markersize=10)
+
+def animate(i):
+    x = [0, length * np.sin(theta_values[i])]
+    y = [0, -length * np.cos(theta_values[i])]
+    pendulum.set_data(x, y)
+    return pendulum,
+
+ani = animation.FuncAnimation(fig, animate, frames=len(time_values), repeat=True)
