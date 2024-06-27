@@ -38,3 +38,9 @@ def animate(i):
     return pendulum,
 
 ani = animation.FuncAnimation(fig, animate, frames=len(time_values), repeat=True)
+ax.set_aspect('equal')
+ax.set_xlabel('X Position (m)')
+ax.set_ylabel('Y Position (m)')
+ax.set_xlim(-length, length)
+ax.set_ylim(-length-0.25, 0)
+plt.show()
